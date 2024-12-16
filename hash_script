@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+input=$1;
+
+if [[ -z "$input" ]]; then
+	echo "No input was provided"
+	exit 1
+fi
+
+if [[ ! "$input" =~ ^[0-9]{4} ]]; then
+	echo "invalid input bro, try again"
+	exit 1
+fi
+
+#now for the actual computing of the hash
+
+hash=$(echo -n "$input" | sha256sum | awk '{print $1}');
+echo "$hash"
+#echo "the SHA-256 hash value of \"$input\" is \"$hash\"";
