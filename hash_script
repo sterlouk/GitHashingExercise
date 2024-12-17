@@ -16,4 +16,5 @@ fi
 
 hash=$(echo -n "$input" | sha256sum | awk '{print $1}');
 echo "$hash"
+echo "$hash" > hash_output.txt
 #echo "the SHA-256 hash value of \"$input\" is \"$hash\"";
